@@ -5,6 +5,7 @@ import torch.optim.lr_scheduler as lr_scheduler
 from dataloader import batch_size
 from dataloader import data_transform, data_loader
 from blocknet10 import CustomCIFAR10Net
+from analytics import model_analytics
 
 torch.manual_seed(42)
 
@@ -88,29 +89,9 @@ for epoch in range(num_epochs):
 
     print(f'Epoch {epoch + 1}: Test Accuracy = {test_accuracy:.2f}%')
 
-print("Train Losses:" + str(train_losses[-1]))
+
+print("Last Train Losses:" + str(train_losses[-1]))
 print("Last Train Accuracy:" + str(train_accuracies[-1]))
 print("Last Test Accuracy:" + str(test_accuracies[-1]))
 
-import matplotlib.pyplot as plt
-
-plt.figure(figsize=(10, 5))
-
-plt.subplot(1, 2, 1)
-plt.plot(train_losses, label='Training Loss')
-plt.xlabel('Batch')
-plt.ylabel('Loss')
-plt.title('Loss per Training Batch')
-plt.legend()
-
-plt.subplot(1, 2, 2)
-plt.plot(train_accuracies, label='Training Accuracy')
-plt.plot(test_accuracies, label='Test Accuracy')
-plt.xlabel('Epoch')
-plt.ylabel('Accuracy (%)')
-plt.title('Training and Test Accuracies')
-plt.legend()
-
-plt.tight_layout()
-plt.show()
-
+analytics = model_analytics(train_losses, train_accuracies, test_accuracies)
