@@ -1,0 +1,7 @@
+{
+  "architectures": [
+    "BlockNet10"
+  ],
+  "hidden_size": 512,
+  "transformers_version": "4.39.1"
+}
