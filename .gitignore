@@ -2,3 +2,4 @@ push_to_hf.py
 cifar10.py
 data/
 __pycache__/
+*.ipynb
