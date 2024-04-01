@@ -1,6 +1,7 @@
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
+from huggingface_hub import PyTorchModelHubMixin
 
 class IntermediateBlock(nn.Module):
     def __init__(self, in_channels, num_conv_layers, conv_params):
@@ -31,7 +32,7 @@ class OutputBlock(nn.Module):
             out = F.leaky_relu(bn(fc(out)))
         return out
 
-class CustomCIFAR10Net(nn.Module):
+class CustomCIFAR10Net(nn.Module, PyTorchModelHubMixin):
     def __init__(self, num_classes=10):
         super(CustomCIFAR10Net, self).__init__()
         self.intermediate_blocks = nn.ModuleList([
