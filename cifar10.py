@@ -1,34 +1,10 @@
 import torch
-import torchvision
-import torchvision.transforms as transforms
-from torchvision import datasets
 import torch.nn as nn
 import torch.nn.functional as F
 import torch.optim as optim
 import torch.optim.lr_scheduler as lr_scheduler
 
 torch.manual_seed(42)
-
-transform_train = transforms.Compose([
-    transforms.RandomHorizontalFlip(),
-    transforms.RandomRotation(10),
-    transforms.RandomCrop(32, padding=4),
-    transforms.ColorJitter(brightness=0.2, contrast=0.2, saturation=0.2, hue=0.1),
-    transforms.ToTensor(),
-    transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))
-])
-
-transform_test = transforms.Compose([
-    transforms.ToTensor(),
-    transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))
-])
-
-train_dataset = datasets.CIFAR10(root='./data', train=True, download=True, transform=transform_train)
-test_dataset = datasets.CIFAR10(root='./data', train=False, download=True, transform=transform_test)
-
-batch_size = 128
-train_loader = torch.utils.data.DataLoader(train_dataset, batch_size=batch_size, shuffle=True, num_workers=2)
-test_loader = torch.utils.data.DataLoader(test_dataset, batch_size=batch_size, shuffle=False, num_workers=2)
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 print(f"Using device: {device}")
