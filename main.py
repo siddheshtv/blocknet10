@@ -6,6 +6,7 @@ from dataloader import batch_size
 from dataloader import data_transform, data_loader
 from blocknet10 import CustomCIFAR10Net
 from analytics import model_analytics
+from push_to_hf import HF
 
 torch.manual_seed(42)
 
@@ -95,3 +96,7 @@ print("Last Train Accuracy:" + str(train_accuracies[-1]))
 print("Last Test Accuracy:" + str(test_accuracies[-1]))
 
 analytics = model_analytics(train_losses, train_accuracies, test_accuracies)
+
+huggingface = HF()
+push_to_face = huggingface.push_to_face(model=model)
+print(push_to_face)
