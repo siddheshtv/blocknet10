@@ -40,8 +40,8 @@ The output block processes the final output image from the intermediate blocks f
     </tr>
     <tr>
       <td>50</td>
-      <td>76.89</td>
-      <td>74.56</td>
+      <td>75.43</td>
+      <td>80.56</td>
       <td>0.685</td>
     </tr>
   </table>
