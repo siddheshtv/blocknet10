@@ -64,3 +64,7 @@ If you use BlockNet10 in your research or work, please cite it as follows:
   url={https://huggingface.co/siddheshtv/your-model-name}
 }
 ```
+
+---
+
+## license: mit
