@@ -61,7 +61,7 @@ If you use BlockNet10 in your research or work, please cite it as follows:
   author={Siddhesh Kulthe},
   year={2024},
   publisher={Hugging Face},
-  url={https://huggingface.co/siddheshtv/your-model-name}
+  url={https://huggingface.co/siddheshtv/BlockNet10}
 }
 ```
 
